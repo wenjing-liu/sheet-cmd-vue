@@ -1,18 +1,22 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <SimpleSpreadsheet :msg='msg'/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import SimpleSpreadsheet from '@/components/SimpleSpreadsheet.vue'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    SimpleSpreadsheet
+  },
+  data () {
+    return {
+      msg: 'Welcome to Simple SpreadSheet'
+    }
   }
 }
 </script>
