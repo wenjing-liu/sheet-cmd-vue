@@ -2,16 +2,9 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import types from '@/util/mutation-types'
 import i18n from '@/i18n'
+import tableHelper from '@/util/tableHelper'
 
 Vue.use(Vuex)
-
-function createTable (x, y) {
-  const table = new Array(x)
-  for (var i = 0; i < x; i++) {
-    table[i] = new Array(y)
-  }
-  return table
-}
 
 function getDefaultState () {
   return {
@@ -34,7 +27,7 @@ export default new Vuex.Store({
     [types.SET_TABLE_SIZE] (state, { x, y }) {
       state.tableX = x
       state.tableY = y
-      state.data = createTable(x, y)
+      state.data = tableHelper.createTable(x, y)
     },
     [types.SET_CELL_VALUE] (state, { x, y, value }) {
       Vue.set(state.data[x], y, value)
