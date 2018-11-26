@@ -18,9 +18,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.hint-msg {
-  margin-bottom: 10px;
-  color: red;
-  font-size: 14px;
-}
+@import './src/styles/components/_hintMsg.scss';
 </style>

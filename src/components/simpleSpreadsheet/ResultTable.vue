@@ -6,7 +6,7 @@
         <tr v-for="(row, index) in data" :key="`row-${index}`">
           <td v-for="(cell, cellIndex) in row"
             :key="`cell-${cellIndex}`"
-            :class="{notEmptyValue: ![undefined, null].includes(data[index][cellIndex])}">{{ data[index][cellIndex] }}</td>
+            :class="{notEmptyValue: ![undefined, null].includes(tableHelper.getValue(data, index + 1, cellIndex + 1))}">{{ tableHelper.getValue(data, index + 1, cellIndex + 1) }}</td>
         </tr>
       </tbody>
     </table>
@@ -15,37 +15,20 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import tableHelper from '@/util/tableHelper'
 
 export default {
   name: 'resultTable',
+  data () {
+    return {
+      tableHelper
+    }
+  },
   computed: {
     ...mapGetters(['data', 'tableX', 'tableY'])
   }
 }
 </script>
 <style lang="scss" scoped>
-.result-table-wrapper {
-  table {
-    border: solid 1px #e0e0e0;
-    border-collapse:collapse;
-    color: #0C3A58;
-    text-align: center;
-    tbody {
-      tr:nth-child(even) {
-        background-color: #f8f8f8;
-      }
-      tr {
-        border-bottom: solid 1px #e0e0e0;
-      }
-      td {
-        width: 30px;
-        height: 30px;
-        border-right: solid 1px #e0e0e0;
-      }
-      .notEmptyValue {
-        background-color: aqua;
-      }
-    }
-  }
-}
+@import './src/styles/components/_resultTable.scss';
 </style>

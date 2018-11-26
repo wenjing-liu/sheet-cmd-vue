@@ -7,9 +7,8 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-
-import { COMMAND_KEYS, invalidMsg } from '@/util/consts'
-import { cmdRegex } from '@/util/regex'
+import tableHelper from '@/util/tableHelper'
+import { COMMAND_KEYS, invalidMsg, cmdRegex } from '@/util/consts'
 
 export default {
   name: 'cmdInputField',
@@ -87,7 +86,7 @@ export default {
       const x = Number(this.valueArray[1])
       const y = Number(this.valueArray[2])
       const value = Number(this.valueArray[3])
-      if (x > this.tableX || y > this.tableY) {
+      if (!this.isCellExsiting(x, y)) {
         this.setMsg(invalidMsg.overflowTable)
         return
       }
@@ -96,7 +95,7 @@ export default {
     },
     sumOperation () {
       if (!cmdRegex.SUM_KEY.test(this.value)) {
-        this.setMsg(invalidMsg.insertInvalidMsg)
+        this.setMsg(invalidMsg.sumInValidMsg)
         return
       }
       if (!this.isTableExsiting()) {
@@ -107,16 +106,19 @@ export default {
       const y1 = Number(this.valueArray[2])
       const x2 = Number(this.valueArray[3])
       const y2 = Number(this.valueArray[4])
-      const x3 = Number(this.valueArray[5])
-      const y3 = Number(this.valueArray[6])
-      if (x1 > this.tableX || x2 > this.tableX || x3 > this.tableX || y1 > this.tableY || y2 > this.tableY || y3 > this.tableY) {
+      const x = Number(this.valueArray[5])
+      const y = Number(this.valueArray[6])
+      if (!this.isCellExsiting(x1, y1) || !this.isCellExsiting(x2, y2) || !this.isCellExsiting(x, y)) {
         this.setMsg(invalidMsg.overflowTable)
         return
       }
-      const value1 = Number(this.data[x1 - 1][y1 - 1])
-      const value2 = Number(this.data[x2 - 1][y2 - 1])
-      const value = value1 + value2
-      this.setTableValue(x3 - 1, y3 - 1, value)
+
+      const value = tableHelper.sumValue(this.data, x1, y1, x2, y2)
+      if (value === false) {
+        this.setMsg(invalidMsg.noneValue)
+        return
+      }
+      this.setTableValue(x - 1, y - 1, value)
       this.clearValue()
     },
     quitOperation () {
@@ -129,19 +131,14 @@ export default {
         return false
       }
       return true
+    },
+    isCellExsiting (x, y) {
+      return x > 0 && x <= this.tableX && y > 0 && y <= this.tableY
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
- .input_wrapper {
-   margin-bottom: 10px;
-   input {
-     width: 400px;
-     height: 35px;
-     font-size: 20px;
-     padding: 0 5px;
-   }
- }
+@import './src/styles/components/_cmdInputField.scss';
 </style>

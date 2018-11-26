@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import types from '@/util/mutation-types'
+import types from './mutation-types'
 import i18n from '@/i18n'
 import tableHelper from '@/util/tableHelper'
 

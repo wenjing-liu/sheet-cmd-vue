@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import { createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
-import myStore from '@/store'
+import myStore from '@/store/index'
 import testUtil from '../test-util'
 import HintMsg from '@/components/simpleSpreadsheet/HintMsg.vue'
 
@@ -14,7 +14,7 @@ describe('HintMsg.vue', () => {
     store = myStore
   })
 
-  it('renders a table when passed two numbers', () => {
+  it('show hint msg', () => {
     const hintMsg = 'test'
     store.state.hintMsg = hintMsg
     const wrapper = testUtil.mountComponent(HintMsg, { store, localVue })

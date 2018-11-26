@@ -4,12 +4,13 @@
   "startMsg": "You need create a table first",
   "invalidMsg": {
     "createInvalidMsg": "Invalid create table command(C 5 5)",
-    "insertInvalidMsg": "Invalid insert value command(N 1 2 6)",
-    "sumInvalidMsg": "Invalid sum value command(S 1 2 2 3 2 4)",
+    "insertInvalidMsg": "Invalid insert value command(N 1 1 2)",
+    "sumInvalidMsg": "Invalid sum value command(S 1 1 1 2 1 3)",
     "invalidMsg": "Invalid input command",
     "invalidCmd": "Invalid command start",
     "overflowTable": "The place you want to set value is out of table",
-    "createTableFirst": "Please create a table before any operation"
+    "createTableFirst": "Please create a table before any operation",
+    "noneValue": "The cell(s) you tend to operate is without value(s)"
   },
   "tableSize": "Table size: rows: {0} colums: {1}"
 }

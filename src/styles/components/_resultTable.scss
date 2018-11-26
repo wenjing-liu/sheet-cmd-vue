@@ -1,0 +1,29 @@
+@import './src/styles/base/_variables.scss';
+.result-table-wrapper {
+  label {
+    font-size: 1.5rem;
+  }
+  table {
+    border: solid 1px $color-grey-light-1;
+    border-collapse:collapse;
+    color: $color-font-color-1;
+    text-align: center;
+
+    tbody {
+      tr:nth-child(even) {
+        background-color: #f8f8f8;
+      }
+      tr {
+        border-bottom: solid 1px $color-grey-light-1;
+      }
+      td {
+        width: 3rem;
+        height: 3rem;
+        border-right: solid 1px $color-grey-light-2;
+      }
+      .notEmptyValue {
+        background-color: $color-blue-light-1;
+      }
+    }
+  }
+}

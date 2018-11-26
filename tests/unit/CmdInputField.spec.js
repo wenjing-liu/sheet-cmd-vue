@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import { createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
-import myStore from '@/store'
+import myStore from '@/store/index'
 import CmdInputField from '@/components/simpleSpreadsheet/CmdInputField.vue'
 import i18n from '@/i18n'
 import testUtil from '../test-util'
@@ -77,16 +77,6 @@ describe('CmdInputField.vue', () => {
     })
     const input = wrapper.find('input')
     cmdSimulator(input, 'Q')
-    expect(stub.callCount).to.be.equal(1)
-  })
-  it('invalid cmd', () => {
-    const stub = sinon.stub()
-    const wrapper = testUtil.mountComponent(CmdInputField, { store, localVue })
-    wrapper.setMethods({
-      setMsg: stub
-    })
-    const input = wrapper.find('input')
-    cmdSimulator(input, 'A')
     expect(stub.callCount).to.be.equal(1)
   })
 })

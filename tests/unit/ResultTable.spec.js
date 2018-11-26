@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import { createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
-import myStore from '@/store'
+import myStore from '@/store/index'
 import ResultTable from '@/components/simpleSpreadsheet/ResultTable.vue'
 import i18n from '@/i18n'
 import testUtil from '../test-util'
@@ -25,6 +25,6 @@ describe('ResultTable.vue', () => {
     store.state.data = tableHelper.createTable(tableX, tableY)
     const wrapper = testUtil.mountComponent(ResultTable, { store, localVue })
     const msg = `rows: ${tableX} colums: ${tableY}`
-    expect(wrapper.html()).to.include(msg)
+    expect(wrapper.text()).to.include(msg)
   })
 })
