@@ -1,3 +1,15 @@
 {
-  "title": "Simple Spreadsheet"
+  "title": "Simple Spreadsheet",
+  "msg": "Welcome to Simple Spreadsheet",
+  "startMsg": "You need create a table first",
+  "invalidMsg": {
+    "createInvalidMsg": "Invalid create table command(C 5 5)",
+    "insertInvalidMsg": "Invalid insert value command(N 1 2 6)",
+    "sumInvalidMsg": "Invalid sum value command(S 1 2 2 3 2 4)",
+    "invalidMsg": "Invalid input command",
+    "invalidCmd": "Invalid command start",
+    "overflowTable": "The place you want to set value is out of table",
+    "createTableFirst": "Please create a table before any operation"
+  },
+  "tableSize": "Table size: rows: {0} colums: {1}"
 }

@@ -5,8 +5,8 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import SimpleSpreadsheet from '@/components/SimpleSpreadsheet.vue'
+import i18n from '@/i18n'
+import SimpleSpreadsheet from '@/components/simpleSpreadsheet/index.vue'
 
 export default {
   name: 'home',
@@ -15,7 +15,7 @@ export default {
   },
   data () {
     return {
-      msg: 'Welcome to Simple SpreadSheet'
+      msg: i18n.t('msg')
     }
   }
 }
