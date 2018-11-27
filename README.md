@@ -2,8 +2,8 @@
 This is a simple spreadsheet which can do some table actions.
 ## Project setup
 ```
-git clone https://claire_liu_epam@bitbucket.org/claire_liu_epam/spreadsheet.git
-cd simpleSpreadsheet
+git clone  https://claire_liu_epam@bitbucket.org/claire_liu_epam/simplespreadsheet.git
+cd simplespreadsheet
 npm install
 npm start
 open http://localhost:8080/
